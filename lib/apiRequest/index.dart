@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import '../apiRequest/dioConfig.dart';
 import '../config/index.dart';

@@ -17,5 +17,5 @@ MaterialPageRoute routeBuilder (RouteSettings settings, bool isLogin) {
 }
 
 _checkIsLogin(isLogin, page) {
-  return isLogin ? page : Login();
+  return isLogin ? page : InitGMS();
 }
