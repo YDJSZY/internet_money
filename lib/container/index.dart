@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import './home/home.dart';
 import './my/my.dart';
+import './takeApprentice/takeApprentice.dart';
 
 class InitGMS extends StatefulWidget {
   @override
@@ -22,8 +23,10 @@ class _InitGMS extends State<InitGMS> {
     super.initState();
     final home = Home();
     final my = My();
+    final takeApprentice = TakeApprentice();
     containerList = [
       home,
+      takeApprentice,
       my
     ];
     _pageController = PageController(initialPage: _currentIndex, keepPage: true);
@@ -57,6 +60,21 @@ class _InitGMS extends State<InitGMS> {
               controller: _pageController,
               physics: NeverScrollableScrollPhysics(), // 禁止左右切换
             ),
+            floatingActionButton: Container(
+              width: 60,
+              height: 60,
+              padding: EdgeInsets.all(8),
+              margin: EdgeInsets.only(top: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(60))
+              ),
+              child: FloatingActionButton(
+                child: Icon(Icons.add_box),
+                onPressed: () { setCurrentPageIndex(1); },
+              ),
+            ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
             bottomNavigationBar: BottomNavigationBar(
               //backgroundColor: Colors.white,
               currentIndex: _currentIndex,
@@ -71,6 +89,13 @@ class _InitGMS extends State<InitGMS> {
                     size: 22
                   ),
                   title: Text('首页', style: TextStyle(fontSize: 10)),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home, 
+                    size: 22
+                  ),
+                  title: Text('收徒赚钱', style: TextStyle(fontSize: 10)),
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
