@@ -27,7 +27,7 @@ class _TakeApprentice extends State<TakeApprentice> with SingleTickerProviderSta
     return Container(
       height: 190,
       decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
+        color: Color(0xFFF8F9FE),
         image: DecorationImage(
           image: AssetImage('lib/assets/imgs/vv_login_bg.jpg'),
           fit: BoxFit.contain,
