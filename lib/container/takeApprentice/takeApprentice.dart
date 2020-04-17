@@ -34,10 +34,10 @@ class _TakeApprentice extends State<TakeApprentice> with SingleTickerProviderSta
           alignment: Alignment.topCenter
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Container(
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Container(
             padding: EdgeInsets.only(top: 15),
             child: DefaultTabController(
               length: 2,
@@ -78,8 +78,30 @@ class _TakeApprentice extends State<TakeApprentice> with SingleTickerProviderSta
               ),
             )
           ),
-        )
+        ),
       )
     );
+  }
+}
+
+class StickyTabBarDelegate extends SliverPersistentHeaderDelegate {
+  final PreferredSize child;
+
+  StickyTabBarDelegate({@required this.child});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return this.child;
+  }
+
+  @override
+  double get maxExtent => this.child.preferredSize.height;
+
+  @override
+  double get minExtent => this.child.preferredSize.height;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }
